@@ -2,7 +2,7 @@ use_frameworks!
 
 target 'URBNSwiftAlert_Example' do
   pod 'URBNSwiftAlert', :path => '../'
-
+  pod 'URBNConvenience', :git => "git@github.com:urbn/URBNConvenience.git", :branch => "swift3.0"
   target 'URBNSwiftAlert_Tests' do
     inherit! :search_paths
 
