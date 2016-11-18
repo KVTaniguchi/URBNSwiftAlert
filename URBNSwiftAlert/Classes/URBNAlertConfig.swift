@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import URBNConvenience
 
 open class URBNSwiftAlertConfig: NSObject {
     /**

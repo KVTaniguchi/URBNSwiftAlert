@@ -1,27 +1,20 @@
 PODS:
-  - URBNConvenience (1.1.1)
-  - URBNSwiftAlert (0.1.0)
+  - URBNConvenience (2.1.1)
+  - URBNSwiftAlert (0.1.0):
+    - URBNConvenience
 
 DEPENDENCIES:
-  - URBNConvenience (from `git@github.com:urbn/URBNConvenience.git`, branch `swift3.0`)
+  - URBNConvenience
   - URBNSwiftAlert (from `../`)
 
 EXTERNAL SOURCES:
-  URBNConvenience:
-    :branch: swift3.0
-    :git: git@github.com:urbn/URBNConvenience.git
   URBNSwiftAlert:
     :path: ../
 
-CHECKOUT OPTIONS:
-  URBNConvenience:
-    :commit: 571951c8178bd05f8479054dd7533277e19bf35f
-    :git: git@github.com:urbn/URBNConvenience.git
-
 SPEC CHECKSUMS:
-  URBNConvenience: cf6ce61b574d3bf2df8c8d5dd3984b4163643cfd
-  URBNSwiftAlert: e8b83a64e28619726068923d1acdd0df5c6b3f98
+  URBNConvenience: dcc0318afae48d1c2c69f371b7fb3e08e8f8b3fe
+  URBNSwiftAlert: 570a78d458ac4f955bb34c5f3bc6b666d38d5c98
 
-PODFILE CHECKSUM: 8f634ae85b3707c38bc74f36716cec84ab26c5ef
+PODFILE CHECKSUM: 8e0f9b13b13afb2a3e025833438ecfec2f16d6fe
 
-COCOAPODS: 1.1.0.rc.3
+COCOAPODS: 1.1.1

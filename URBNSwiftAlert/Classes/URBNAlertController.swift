@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import URBNConvenience
 
 typealias AlertButtonTouched = (_ alertController: URBNSwiftAlertController, _ index: Int) -> Void
 

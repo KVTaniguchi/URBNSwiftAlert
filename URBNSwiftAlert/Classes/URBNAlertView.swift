@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import URBNConvenience
 
 public typealias URBNSwiftAlertViewButtonTouched = (URBNSwiftAlertAction) -> Void
 public typealias URBNSwiftAlertViewTouched = (URBNSwiftAlertAction) -> Void
