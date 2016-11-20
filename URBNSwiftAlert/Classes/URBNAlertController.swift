@@ -18,12 +18,7 @@ open class URBNSwiftAlertController: NSObject {
      *  Create & set this property if you wish to customize various properties of the alert view.
      *  If none is passed, default values are used. See URBNAlertStyle for properties you can configue & default values.
      */
-    open var alertStyler: URBNSwiftAlertStyle {
-        get {
-            return alertStyler ?? URBNSwiftAlertStyle()
-        }
-        set {}
-    }
+    open var alertStyler = URBNSwiftAlertStyle()
 
     open func dismissAlertViewController(avc: URBNSwiftAlertViewController) {
         alertIsVisible = false

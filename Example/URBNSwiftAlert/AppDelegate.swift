@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mainNavigationController.pushViewController(exampleVC, animated: true)
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = mainNavigationController
+        window?.rootViewController = mainNavigationController
         window?.makeKeyAndVisible()
         
         return true

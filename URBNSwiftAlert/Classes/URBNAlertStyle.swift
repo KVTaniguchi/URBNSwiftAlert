@@ -13,7 +13,7 @@ open class URBNSwiftAlertStyle: NSObject {
     fileprivate var buttonEdgeInsetsString = ""
     fileprivate var buttonContentInsetsString = ""
 
-    override init() {}
+//    override init() {}
 
     /**
      * Background color of the buttons for active alerts

@@ -47,10 +47,7 @@ open class URBNSwiftAlertViewController: UIViewController {
     /**
      *  The style object associated with this alert
      */
-    //@property (nonatomic, strong) URBNAlertStyle *alertStyler;
-    var alertStyler: URBNSwiftAlertStyle {
-        return URBNSwiftAlertController.sharedInstance.alertStyler
-    }
+    var alertStyler: URBNSwiftAlertStyle = URBNSwiftAlertController.sharedInstance.alertStyler
 
     /**
      *  The configuration object associated with this alert
