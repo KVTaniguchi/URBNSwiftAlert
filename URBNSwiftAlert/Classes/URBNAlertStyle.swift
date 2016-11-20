@@ -31,7 +31,7 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      * Text color of destructive button title when highlighted
      */
-    open var destructiveButtonHighlightTitleColor: UIColor {
+    open var destructiveButtonHighlightTitleColor: UIColor? {
         get {
             return destructiveButtonHighlightTitleColor ?? destructiveButtonTitleColor ?? .red
         }
@@ -52,7 +52,7 @@ open class URBNSwiftAlertStyle: NSObject {
      * Text color of cancel button title when highlighted
      */
 
-    open var cancelButtonHighlightTitleColor: UIColor {
+    open var cancelButtonHighlightTitleColor: UIColor? {
         get {
             return cancelButtonHighlightTitleColor ?? cancelButtonTitleColor
         }
@@ -67,7 +67,7 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      * Background color of a selected button for an active alert
      */
-    open var buttonSelectedBackgroundColor: UIColor {
+    open var buttonSelectedBackgroundColor: UIColor? {
         get {
             return buttonSelectedBackgroundColor ?? buttonBackgroundColor
         }
@@ -77,7 +77,7 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      * Button title color for a selected state
      */
-    open var buttonSelectedTitleColor: UIColor {
+    open var buttonSelectedTitleColor: UIColor? {
         get {
             return buttonSelectedTitleColor ?? buttonTitleColor
         }
@@ -88,7 +88,7 @@ open class URBNSwiftAlertStyle: NSObject {
      * Background color of a highlighted button for an active alert
      */
 
-    open var buttonHighlightBackgroundColor: UIColor {
+    open var buttonHighlightBackgroundColor: UIColor? {
         get {
             return buttonHighlightBackgroundColor ?? buttonBackgroundColor
         }
@@ -99,7 +99,7 @@ open class URBNSwiftAlertStyle: NSObject {
      * Background color of a highlighted button for a cancel action
      */
 
-    open var cancelButtonHighlightBackgroundColor: UIColor {
+    open var cancelButtonHighlightBackgroundColor: UIColor? {
         get {
             return cancelButtonHighlightBackgroundColor ?? buttonBackgroundColor
         }
@@ -110,7 +110,7 @@ open class URBNSwiftAlertStyle: NSObject {
      * Background color of a highlighted button for a destructive action
      */
 
-    open var destructiveButtonHighlightBackgroundColor: UIColor {
+    open var destructiveButtonHighlightBackgroundColor: UIColor? {
         get {
             return destructiveButtonHighlightBackgroundColor ?? buttonBackgroundColor
         }
@@ -205,43 +205,23 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      * Max input length for the text field when enabled
      */
-    open var textFieldMaxLength: Double {
-        get {
-            return textFieldMaxLength ?? 25
-        }
-        set {}
-    }
+    open var textFieldMaxLength: Double = 25.0
 
     /**
      *  Vertical margin between textfields
      */
-    open var textFieldVerticalMargin: Double {
-        get {
-            return textFieldVerticalMargin ?? 8
-        }
-        set {}
-    }
+    open var textFieldVerticalMargin: Double = 8
 
     /**
      *  Text Insets for input text fields on alerts
      */
-    open var textFieldEdgeInsets: UIEdgeInsets {
-        get {
-            return textFieldEdgeInsets ?? UIEdgeInsets.zero
-        }
-        set {}
-    }
+    open var textFieldEdgeInsets: UIEdgeInsets = UIEdgeInsets.zero
 
     /**
      *  Width of vertical separator between buttons that are laid out horiztonally
      */
 
-    open var buttonVerticalSeparatorWidth: Double {
-        get {
-            return buttonVerticalSeparatorWidth ?? 0
-        }
-        set {}
-    }
+    open var buttonVerticalSeparatorWidth: Double = 0
 
     /**
      *  Color of vertical separator between buttons that are laid out horiztonally
@@ -257,12 +237,7 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      *  Height of horizontal separator between buttons (as in native UIAlertController). Default is nil for compatibility
      */
-    open var separatorHeight: Double {
-        get {
-            return separatorHeight ?? 0
-        }
-        set {}
-    }
+    open var separatorHeight: Double = 0.0
 
     /**
      * Color of the horizontal separator between buttons. Default is buttonTitleColor
@@ -277,238 +252,123 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      *  Boolean flag if to use vertical layout for 2 buttons (for 3+ always vertical being used). Default is nil for compatibility
      */
-    open var useVerticalLayoutForTwoButtons: NSNumber {
-        get {
-            return useVerticalLayoutForTwoButtons ?? 0
-        }
-        set {}
-    }
+    open var useVerticalLayoutForTwoButtons: NSNumber = 0
 
     /**
      * Height of the alert's buttons
      */
-    open var buttonHeight: NSNumber {
-        get {
-            return buttonHeight ?? 44
-        }
-        set {}
-    }
+    open var buttonHeight: NSNumber = 44
 
     /**
      * Margin between sections in the alert. ie margin between the title and the message message and the buttons, etc.
      */
-    open var sectionVerticalMargin: NSNumber {
-        get {
-            return sectionVerticalMargin ?? 24
-        }
-        set {}
-    }
+    open var sectionVerticalMargin: NSNumber = 24
 
     /**
      * Left & Right margins of the title & message labels
      */
-    open var labelHorizontalMargin: NSNumber {
-        get {
-            return labelHorizontalMargin ?? 16
-        }
-        set {}
-    }
+    open var labelHorizontalMargin: NSNumber = 16
 
     /**
      * UIEdgeInsets used at the external margins for the buttons of the alert's buttons
      */
-    open var buttonMarginEdgeInsets: UIEdgeInsets {
-        get {
-            return buttonMarginEdgeInsets ?? UIEdgeInsets.zero
-        }
-        set {}
-    }
+    open var buttonMarginEdgeInsets: UIEdgeInsets = UIEdgeInsets.zero
 
     /**
      * UIEdgeInsets used for internal content for the buttons of the alert's buttons
      */
-    open var buttonContentInsets: UIEdgeInsets {
-        get {
-            return buttonContentInsets ?? UIEdgeInsets.zero
-        }
-        set {}
-    }
+    open var buttonContentInsets: UIEdgeInsets = UIEdgeInsets.zero
 
     /**
      * Width of the alert's button's border layer
      */
-    open var buttonBorderWidth: NSNumber {
-        get {
-            return buttonBorderWidth ?? 0
-        }
-        set {}
-    }
+    open var buttonBorderWidth: NSNumber = 0
 
     /**
      * UIColor of the alert's button's border
      */
 
-    open var buttonBorderColor: UIColor {
-        get {
-            return buttonBorderColor ?? .clear
-        }
-        set {}
-    }
+    open var buttonBorderColor: UIColor = .clear
 
     /**
      * Opacity of the alert's button's shadows
      */
-    open var buttonShadowOpacity: NSNumber {
-        get {
-            return buttonShadowOpacity ?? 0
-        }
-        set {}
-    }
+    open var buttonShadowOpacity: NSNumber = 0
 
     /**
      * Radius of the alert's button's shadows
      */
-    open var buttonShadowRadius: NSNumber {
-        get {
-            return buttonShadowRadius ?? 0
-        }
-        set {}
-    }
+    open var buttonShadowRadius: NSNumber = 0
 
     /**
      * Color of the alert's button's shadows
      */
-    open var buttonShadowColor: UIColor {
-        get {
-            return buttonShadowColor ?? .clear
-        }
-        set {}
-    }
+    open var buttonShadowColor: UIColor = .clear
 
     /**
      * Offset of the alert's button's shadows
      */
-    open var buttonShadowOffset: CGSize {
-        get {
-            return buttonShadowOffset ?? CGSize.zero
-        }
-        set {}
-    }
+    open var buttonShadowOffset: CGSize = CGSize.zero
 
     /**
      * Margin around the custom view if supplied
      */
-    open var customViewMargin: NSNumber {
-        get {
-            return customViewMargin ?? 8
-        }
-        set {}
-    }
+    open var customViewMargin: NSNumber = 8
 
     /**
      * Color of the border around a custom view via layer
      */
-    open var customViewBorderColor: UIColor {
-        get {
-            return customViewBorderColor ?? .clear
-        }
-        set {}
-    }
+    open var customViewBorderColor: UIColor = .clear
 
     /**
      * Width of the border around a custom view via layer
      */
-    open var customViewBorderWidth: NSNumber {
-        get {
-            return customViewBorderWidth ?? 0
-        }
-        set {}
-    }
+    open var customViewBorderWidth: NSNumber = 0
 
     /**
      * Duration of the presenting and dismissing of the alert view
      */
-    open var animationDuration: NSNumber {
-        get {
-            return animationDuration ?? 0.6
-        }
-        set {}
-    }
+    open var animationDuration: NSNumber = 0.6
 
     /**
      *  Spring damping for the presenting and dismissing of the alert view
      */
-    open var animationDamping: NSNumber {
-        get {
-            return animationDamping ?? 0.6
-        }
-        set {}
-    }
+    open var animationDamping: NSNumber = 0.6
 
     /**
      *  Spring initial velocity for the presenting and dismissing of the alert view
      */
-    open var animationInitialVelocity: NSNumber {
-        get {
-            return animationInitialVelocity ?? -10
-        }
-        set {}
-    }
+    open var animationInitialVelocity: NSNumber = -10
 
     /**
      * Opacity of the alert view's shadow
      */
-    open var alertViewShadowOpacity: NSNumber {
-        get {
-            return alertViewShadowOpacity ?? 0.3
-        }
-        set {}
-    }
+    open var alertViewShadowOpacity: NSNumber = 0.3
 
     /**
      * Radius of the alert view's shadow
      */
-    open var alertViewShadowRadius: NSNumber {
-        get {
-            return alertViewShadowRadius ?? 2
-        }
-        set {}
-    }
+    open var alertViewShadowRadius: NSNumber = 2
 
     /**
      * Color of the alert view's shadow
      */
-    open var alertViewShadowColor: UIColor {
-        get {
-            return alertViewShadowColor ?? .black
-        }
-        set {}
-    }
+    open var alertViewShadowColor: UIColor = .black
 
     /**
      * Offset of the alert view's shadow
      */
-    open var alertShadowOffset: CGSize {
-        get {
-            return alertShadowOffset ?? CGSize(width: 1, height: 1)
-        }
-        set {}
-    }
+    open var alertShadowOffset: CGSize = CGSize(width: 1, height: 1)
 
     /**
      * Pass no to disable blurring in the background
      */
-    open var blurEnabled: NSNumber {
-        get {
-            return blurEnabled ?? 1
-        }
-        set {}
-    }
+    open var blurEnabled: NSNumber = 1
 
     /**
      * Tint color of the blurred snapshot
      */
-    open var blurTintColor: UIColor {
+    open var blurTintColor: UIColor? {
         get {
             let tintColor = blurTintColor ?? UIColor.white.withAlphaComponent(0.4)
             var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha : CGFloat = 0
@@ -528,42 +388,22 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      * Radius of the blurred snapshot
      */
-    open var blurRadius: NSNumber {
-        get {
-            return blurRadius ?? 5
-        }
-        set {}
-    }
+    open var blurRadius: NSNumber = 5
 
     /**
      * Saturation blur factor of the blurred snapshot. 1 is normal. < 1 removes color, > 1 adds color
      */
-    open var blurSaturationDelta: NSNumber {
-        get {
-            return blurSaturationDelta ?? 1
-        }
-        set {}
-    }
+    open var blurSaturationDelta: NSNumber = 1
 
     /**
      * Text color of the error label text
      */
-    open var errorTextColor: UIColor {
-        get {
-            return errorTextColor ?? .red
-        }
-        set {}
-    }
+    open var errorTextColor: UIColor = .red
 
     /**
      * Font of the error label text
      */
-    open var errorTextFont: UIFont {
-        get {
-            return errorTextFont ?? UIFont.boldSystemFont(ofSize: 14)
-        }
-        set {}
-    }
+    open var errorTextFont: UIFont = UIFont.boldSystemFont(ofSize: 14)
 
     /**
      * Color for the top border of the button container
