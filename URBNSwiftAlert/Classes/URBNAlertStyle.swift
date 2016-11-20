@@ -13,44 +13,27 @@ open class URBNSwiftAlertStyle: NSObject {
     fileprivate var buttonEdgeInsetsString = ""
     fileprivate var buttonContentInsetsString = ""
 
-//    override init() {}
-
     /**
      * Background color of the buttons for active alerts
      */
-    open var  buttonBackgroundColor: UIColor {
-        get {
-            return buttonBackgroundColor ?? .lightGray
-        }
-        set {}
-    }
+    open var  buttonBackgroundColor: UIColor = .lightGray
 
     /**
      * Background color of the denial button for an active alert (at position 0)
      */
-    open var destructionButtonBackgroundColor: UIColor {
-        get {
-            return destructionButtonBackgroundColor ?? .red
-        }
-        set {}
-    }
+    open var destructionButtonBackgroundColor: UIColor = .red
 
     /**
      * Text color of destructive button colors
      */
-    open var destructiveButtonTitleColor: UIColor {
-        get {
-            return destructiveButtonTitleColor ?? .white
-        }
-        set {}
-    }
+    open var destructiveButtonTitleColor: UIColor = .white
 
     /**
      * Text color of destructive button title when highlighted
      */
     open var destructiveButtonHighlightTitleColor: UIColor {
         get {
-            return destructiveButtonHighlightTitleColor ?? destructiveButtonTitleColor
+            return destructiveButtonHighlightTitleColor ?? destructiveButtonTitleColor ?? .red
         }
         set {}
     }
@@ -58,22 +41,12 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      * Background color of the cancel button for an active alert
      */
-    open var cancelButtonBackgroundColor: UIColor {
-        get {
-            return cancelButtonBackgroundColor ?? .lightGray
-        }
-        set {}
-    }
+    open var cancelButtonBackgroundColor: UIColor = .lightGray
 
     /**
      * Text color of cancel button colors
      */
-    open var  cancelButtonTitleColor: UIColor {
-        get {
-            return cancelButtonTitleColor ?? .white
-        }
-        set {}
-    }
+    open var  cancelButtonTitleColor: UIColor = .white
 
     /**
      * Text color of cancel button title when highlighted
@@ -162,122 +135,62 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      * Alpha value of a disabled button
      */
-    open var disabledButtonAlpha: Double {
-        get {
-            return disabledButtonAlpha ?? 0.5
-        }
-        set {}
-    }
+    open var disabledButtonAlpha: Double = 0.5
 
     /**
      * Text color of the button titles
      */
-    open var buttonTitleColor: UIColor {
-        get {
-            return buttonTitleColor ?? .white
-        }
-        set {}
-    }
+    open var buttonTitleColor: UIColor = .white
 
     /**
      * Background color of alert view
      */
-    open var backgroundColor: UIColor {
-        get {
-            return backgroundColor ?? .white
-        }
-        set {}
-    }
+    open var backgroundColor: UIColor = .white
 
     /**
      * Text color of the alert's title
      */
-    open var titleColor: UIColor {
-        get {
-            return titleColor ?? .black
-        }
-        set {}
-    }
+    open var titleColor: UIColor = .black
 
     /**
      * Text color of the alert's message
      */
-    open var messageColor: UIColor {
-        get {
-            return messageColor ?? .black
-        }
-        set {}
-    }
+    open var messageColor: UIColor = .black
 
     /**
      * Font of the alert's title
      */
-    open var titleFont: UIFont {
-        get {
-            return titleFont ?? UIFont.boldSystemFont(ofSize: 14)
-        }
-        set {}
-    }
+    open var titleFont: UIFont = UIFont.boldSystemFont(ofSize: 14)
 
     /**
      * Alignment of the titles's message
      */
-    open var titleAlignment: NSTextAlignment {
-        get {
-            return titleAlignment ?? .center
-        }
-        set {}
-    }
+    open var titleAlignment: NSTextAlignment = .center
 
     /**
      * Font of the alert's message
      */
-    open var messageFont: UIFont {
-        get {
-            return messageFont ?? UIFont.systemFont(ofSize: 14)
-        }
-        set {}
-    }
+    open var messageFont: UIFont = UIFont.systemFont(ofSize: 14)
 
     /**
      * Alignment of the alert's message
      */
-    open var messageAlignment: NSTextAlignment {
-        get {
-            return messageAlignment ?? .left
-        }
-        set {}
-    }
+    open var messageAlignment: NSTextAlignment = .left
 
     /**
      * Font of the button's titles
      */
-    open var buttonFont: UIFont {
-        get {
-            return buttonFont ?? UIFont.boldSystemFont(ofSize: 14)
-        }
-        set {}
-    }
+    open var buttonFont: UIFont = UIFont.boldSystemFont(ofSize: 14)
 
     /**
      * Corner radius of the alert's buttons
      */
-    open var buttonCornerRadius: Double {
-        get {
-            return buttonCornerRadius ?? 8
-        }
-        set {}
-    }
+    open var buttonCornerRadius: Double = 8.0
 
     /**
      * Corner radius of the alert view itself
      */
-    open var alertCornerRadius: Double {
-        get {
-            return alertCornerRadius ?? 8
-        }
-        set {}
-    }
+    open var alertCornerRadius: Double = 8.0
 
     /**
      *  Minimum width the alert view can be. Note if using, alertMaxWidth must also be set

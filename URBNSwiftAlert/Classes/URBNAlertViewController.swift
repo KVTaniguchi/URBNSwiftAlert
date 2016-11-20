@@ -9,7 +9,7 @@
 import UIKit
 import URBNConvenience
 
-typealias URBNSwiftAlertViewControllerFinishedDismissing = (_ wasTouchedOutside: Bool) -> Void
+public typealias URBNSwiftAlertViewControllerFinishedDismissing = (_ wasTouchedOutside: Bool) -> Void
 
 open class URBNSwiftAlertViewController: UIViewController {
     //typedef void(^URBNAlertViewControllerFinishedDismissing)(BOOL wasTouchedOutside);
@@ -47,22 +47,24 @@ open class URBNSwiftAlertViewController: UIViewController {
     /**
      *  The style object associated with this alert
      */
-    var alertStyler: URBNSwiftAlertStyle = URBNSwiftAlertController.sharedInstance.alertStyler
+    open var alertStyler: URBNSwiftAlertStyle = URBNSwiftAlertController.sharedInstance.alertStyler
 
     /**
      *  The configuration object associated with this alert
      */
-    let alertConfig = URBNSwiftAlertConfig()
+    open var alertConfig = URBNSwiftAlertConfig()
 
     /**
      *  The customView displayed in the alert, if passed
      */
-    var customView: UIView?
+    open var customView: UIView?
+    
+    open var textField = UITextField()
 
     /**
      *  Used to detect when the alert has completed its dismissing animation
      */
-    var finishedDismissingClosure: URBNSwiftAlertViewControllerFinishedDismissing? {
+    open var finishedDismissingClosure: URBNSwiftAlertViewControllerFinishedDismissing? {
         get {
             return nil
         }
@@ -251,7 +253,7 @@ extension URBNSwiftAlertViewController {
      *  Use this method to show a created/configurated URBNAlertViewController.
      *  Alert will be presented in a new window on top of your app
      */
-    func show() {
+    open func show() {
         alertView = URBNSwiftAlertView(alertConfig: alertConfig, alertStyler: alertStyler, customView: customView)
         alertView?.alpha = 0.0
         alertView?.translatesAutoresizingMaskIntoConstraints = false
@@ -294,7 +296,7 @@ extension URBNSwiftAlertViewController {
      *
      *  @param view The view in which the alert will appear
      */
-    func showInView(view: UIView) {
+    open func showInView(view: UIView) {
         alertConfig.presentationView = view
         show()
     }
@@ -302,7 +304,7 @@ extension URBNSwiftAlertViewController {
     /**
      *  Call anytime you want to dismiss the currently presented alert
      */
-    func dismiss() {
+    open func dismiss() {
         dismissAlert(sender: nil)
     }
 
@@ -311,7 +313,7 @@ extension URBNSwiftAlertViewController {
      *
      *  @param sender Who is causing the dismiss
      */
-    func dismissAlert(sender: AnyObject?) {
+    open func dismissAlert(sender: AnyObject?) {
         view.endEditing(true)
 
         alertController.dismissingAlert()
@@ -331,7 +333,7 @@ extension URBNSwiftAlertViewController {
      *
      *  @param action The URBNAlertAction to be added to the alert
      */
-    func addAction(action: URBNSwiftAlertAction) {
+    open func addAction(action: URBNSwiftAlertAction) {
         var actions = alertConfig.actions ?? [URBNSwiftAlertAction]()
         actions.append(action)
         alertConfig.actions = actions
@@ -344,7 +346,7 @@ extension URBNSwiftAlertViewController {
      *
      *  @param errorText The error you want to display to the user
      */
-    func showInputError(errorText: String) {
+    open func showInputError(errorText: String) {
         alertView?.setErrorLabelText(errorText: errorText)
     }
 
@@ -354,7 +356,7 @@ extension URBNSwiftAlertViewController {
      *
      *  @param index Index of the textfield you wish to animate
      */
-    func startLoadingTextFieldAtIndex(index: Int) {
+    open func startLoadingTextFieldAtIndex(index: Int) {
         indexOfLoadingTextField = index
         alertView?.setLoadingState(newState: true, index: index)
     }
@@ -363,14 +365,14 @@ extension URBNSwiftAlertViewController {
      *  When called, any buttons are disabled and the first textfield
      *      adnimates with a loading indicator. Kept for convenience & backwards compatability
      */
-    func startLoading() {
+    open func startLoading() {
         startLoadingTextFieldAtIndex(index: 0)
     }
 
     /**
      *  Enables all buttons and removes the textField loading spinner if present
      */
-    func stopLoading() {
+    open func stopLoading() {
         alertView?.setLoadingState(newState: false, index: indexOfLoadingTextField)
     }
 }
@@ -383,7 +385,7 @@ extension URBNSwiftAlertViewController {
      *
      *  @param configurationHandler If you wish to customize the textFields properties, provide this block
      */
-    func addTextFieldWithConfigurationHandler(configHandler: ((UITextField) -> Void)? = nil ) {
+    open func addTextFieldWithConfigurationHandler(configHandler: ((UITextField) -> Void)? = nil ) {
         var inputs = alertConfig.inputs ?? [URBNTextField]()
 
         let textField = URBNTextField()
@@ -395,23 +397,13 @@ extension URBNSwiftAlertViewController {
     }
 
     /**
-     *  Getter for the 1st textField added to the alert. Kept for convenience & backwards compatability
-     */
-    var textField: UITextField {
-        get {
-            return UITextField()
-        }
-        set {}
-    }
-
-    /**
      *  Helpers to get a textfield for a given index
      *
      *  @param index The index of the textfield you wish to get
      *
      *  @return
      */
-    func textFieldAtIndex(index: Int) -> UITextField? {
+    open func textFieldAtIndex(index: Int) -> UITextField? {
         return nil
     }
 }
