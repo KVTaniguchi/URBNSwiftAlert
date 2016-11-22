@@ -42,7 +42,7 @@ open class URBNSwiftAlertView: UIView, UITextFieldDelegate {
     let titleLabel = UILabel()
     let messageTextView = UITextView()
     let errorLabel = UILabel()
-    var customView: UIView?
+    var customView: UIView = UIView()
     lazy var buttons = [URBNSwiftAlertActionButton]()
     var sectionCount: Int = 0
     lazy var buttonContainer = UIView()
@@ -73,10 +73,9 @@ open class URBNSwiftAlertView: UIView, UITextFieldDelegate {
         addSubview(titleLabel)
         addSubview(messageTextView)
         addSubview(errorLabel)
-        if let customView = customView {
-            addSubview(customView)
-            views["customView"] = customView
-        }
+        
+        addSubviewsWithNoConstraints(self.customView)
+        views["customView"] = self.customView
 
         for (index, textField) in alertConfig.inputs.enumerated() {
             textField.edgeInsets = alertStyler.textFieldEdgeInsets
@@ -139,7 +138,7 @@ open class URBNSwiftAlertView: UIView, UITextFieldDelegate {
             lbl.translatesAutoresizingMaskIntoConstraints = false
             NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|-lblHMargin-[lbl]-lblHMargin-|", options: [], metrics: metrics, views: ["lbl": lbl]))
         }
-
+        
         messageTextView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|-lblHMargin-[tv]-lblHMargin-|", options: [], metrics: metrics, views: ["tv": messageTextView]))
         NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|-cvMargin-[customView]-cvMargin-|", options: [], metrics: metrics, views: views))
@@ -242,13 +241,10 @@ extension URBNSwiftAlertView {
         if let customView = customView {
             self.customView = customView
             sectionCount += 1
-            self.customView?.layer.borderWidth = CGFloat(self.alertStyler.customViewBorderWidth)
-            self.customView?.layer.borderColor = self.alertStyler.customViewBorderColor.cgColor
+            self.customView.layer.borderWidth = CGFloat(self.alertStyler.customViewBorderWidth)
+            self.customView.layer.borderColor = self.alertStyler.customViewBorderColor.cgColor
         }
-        else {
-            self.customView = UIView()
-        }
-        self.customView?.translatesAutoresizingMaskIntoConstraints = false
+        self.customView.translatesAutoresizingMaskIntoConstraints = false
     }
 
     func setUpButtonContainerBorders() {
@@ -281,8 +277,9 @@ extension URBNSwiftAlertView {
         let buttonsSeparatorHeight = numberOfVerticalButtons > 1 ? CGFloat(alertStyler.separatorHeight) * CGFloat(numberOfVerticalButtons) : 0
         let maxHeight = screenHeight - titleLabel.intrinsicContentSize.height - verticalSectionMarginsHeight - buttonsHeight - buttonsSeparatorHeight - kURBNAlertViewHeightPadding
 
-        if messageTextView.urbn_heightLayoutConstraint == nil {
+        if messageTextView.urbn_heightLayoutConstraint() == nil {
             messageTextView.urbn_addHeightLayoutConstraint(withConstant: 0)
+            messageTextView.urbn_heightLayoutConstraint()
         }
 
         if !messageTextView.text.isEmpty {

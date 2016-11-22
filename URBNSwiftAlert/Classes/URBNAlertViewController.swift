@@ -254,9 +254,10 @@ extension URBNSwiftAlertViewController {
      *  Alert will be presented in a new window on top of your app
      */
     open func show() {
-        alertView = URBNSwiftAlertView(alertConfig: alertConfig, alertStyler: alertStyler, customView: customView)
+        let av = URBNSwiftAlertView(alertConfig: alertConfig, alertStyler: alertStyler, customView: customView)
+        alertView = av
         alertView?.alpha = 0.0
-        alertView?.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubviewsWithNoConstraints(av)
 
         var screenWidth: CGFloat = 0.0
 
@@ -279,10 +280,11 @@ extension URBNSwiftAlertViewController {
 
             NSLayoutConstraint(item: alertView, attribute: .width, relatedBy: .greaterThanOrEqual, toItem: nil, attribute: .width, multiplier: 1.0, constant: minWidth).isActive = true
             NSLayoutConstraint(item: alertView, attribute: .width, relatedBy: .lessThanOrEqual, toItem: nil, attribute: .width, multiplier: 1.0, constant: maxWidth).isActive = true
-            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|->=sideMargins-[alertView]->=sideMargins-|", options: [], metrics: metrics, views: ["alertView": alertView]))
+            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|->=sideMargins-[alertView]->=sideMargins-|", options: [], metrics: metrics, views: ["alertView": av]))
         }
+            
         else {
-            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|-sideMargins-[alertView]-sideMargins-|", options: [], metrics: metrics, views: ["alertView": alertView]))
+            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "H:|-sideMargins-[alertView]-sideMargins-|", options: [], metrics: metrics, views: ["alertView": av]))
         }
 
         yPosConstraint = NSLayoutConstraint(item: alertView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.0, constant: 0)
@@ -439,9 +441,9 @@ extension URBNSwiftAlertViewController {
         }
     }
     
-    override open var preferredStatusBarStyle: UIStatusBarStyle {
-        guard let style = alertController.presentingWindow?.rootViewController?.preferredStatusBarStyle else { return preferredStatusBarStyle }
-        return style
-    }
+//    override open var preferredStatusBarStyle: UIStatusBarStyle {
+//        guard let style = alertController.presentingWindow?.rootViewController?.preferredStatusBarStyle else { return preferredStatusBarStyle }
+//        return style
+//    }
     
 }

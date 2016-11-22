@@ -31,12 +31,20 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      * Text color of destructive button title when highlighted
      */
-    open var destructiveButtonHighlightTitleColor: UIColor? {
+    open var destructiveButtonHighlightTitleColor: UIColor {
         get {
-            return destructiveButtonHighlightTitleColor ?? destructiveButtonTitleColor ?? .red
+            guard let internalDestructiveButtonHighlightTitleColor = internalDestructiveButtonHighlightTitleColor else {
+                return destructiveButtonTitleColor
+            }
+            
+            return internalDestructiveButtonHighlightTitleColor
         }
-        set {}
+        set (newColor) {
+            internalDestructiveButtonHighlightTitleColor = newColor
+        }
     }
+    
+    fileprivate var internalDestructiveButtonHighlightTitleColor: UIColor?
 
     /**
      * Background color of the cancel button for an active alert
@@ -52,12 +60,19 @@ open class URBNSwiftAlertStyle: NSObject {
      * Text color of cancel button title when highlighted
      */
 
-    open var cancelButtonHighlightTitleColor: UIColor? {
+    open var cancelButtonHighlightTitleColor: UIColor {
         get {
-            return cancelButtonHighlightTitleColor ?? cancelButtonTitleColor
+            guard let internalCancelButtonHighlightTitleColor = internalCancelButtonHighlightTitleColor else {
+                return cancelButtonTitleColor
+            }
+            return internalCancelButtonHighlightTitleColor
         }
-        set {}
+        set (newColor) {
+            internalCancelButtonHighlightTitleColor = newColor
+        }
     }
+    
+    fileprivate var internalCancelButtonHighlightTitleColor: UIColor?
 
     /**
      * Background color of a disabled button for an active alert
@@ -67,65 +82,74 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      * Background color of a selected button for an active alert
      */
-    open var buttonSelectedBackgroundColor: UIColor? {
-        get {
-            return buttonSelectedBackgroundColor ?? buttonBackgroundColor
-        }
-        set {}
-    }
+    open var buttonSelectedBackgroundColor: UIColor? = .white
+//        get {
+//            return buttonSelectedBackgroundColor ?? buttonBackgroundColor
+//        }
+//        set {}
+//    }
 
     /**
      * Button title color for a selected state
      */
-    open var buttonSelectedTitleColor: UIColor? {
-        get {
-            return buttonSelectedTitleColor ?? buttonTitleColor
-        }
-        set {}
-    }
+    open var buttonSelectedTitleColor: UIColor? = .white
+//        get {
+//            return buttonSelectedTitleColor ?? buttonTitleColor
+//        }
+//        set {}
+//    }
+    
+//    fileprivate var 
 
     /**
      * Background color of a highlighted button for an active alert
      */
 
-    open var buttonHighlightBackgroundColor: UIColor? {
-        get {
-            return buttonHighlightBackgroundColor ?? buttonBackgroundColor
-        }
-        set {}
-    }
+    open var buttonHighlightBackgroundColor: UIColor? = .white
+//        get {
+//            return buttonHighlightBackgroundColor ?? buttonBackgroundColor
+//        }
+//        set {}
+//    }
 
     /**
      * Background color of a highlighted button for a cancel action
      */
 
-    open var cancelButtonHighlightBackgroundColor: UIColor? {
-        get {
-            return cancelButtonHighlightBackgroundColor ?? buttonBackgroundColor
-        }
-        set {}
-    }
+    open var cancelButtonHighlightBackgroundColor: UIColor? = .white
+//        get {
+//            return cancelButtonHighlightBackgroundColor ?? buttonBackgroundColor
+//        }
+//        set {}
+//    }
 
     /**
      * Background color of a highlighted button for a destructive action
      */
 
-    open var destructiveButtonHighlightBackgroundColor: UIColor? {
-        get {
-            return destructiveButtonHighlightBackgroundColor ?? buttonBackgroundColor
-        }
-        set {}
-    }
+    open var destructiveButtonHighlightBackgroundColor: UIColor? = .white
+//        get {
+//            return destructiveButtonHighlightBackgroundColor ?? buttonBackgroundColor
+//        }
+//        set {}
+//    }
 
     /**
      * Button title color on highlight
      */
     open var buttonHighlightTitleColor: UIColor {
         get {
-            return buttonHighlightTitleColor ?? buttonTitleColor
+            guard let internalButtonHighlightTitleColor = internalButtonHighlightTitleColor else {
+                return buttonTitleColor
+            }
+            return internalButtonHighlightTitleColor
         }
-        set {}
+        set (newColor) {
+            internalButtonHighlightTitleColor = newColor
+        }
     }
+    
+    fileprivate var internalButtonHighlightTitleColor: UIColor?
 
     /**
      * Text color of a disabled button
@@ -242,12 +266,20 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      * Color of the horizontal separator between buttons. Default is buttonTitleColor
      */
-    open var separatorColor: UIColor {
+    open var separatorColor: UIColor? {
         get {
-            return separatorColor ?? buttonTitleColor
+            guard let internalSeparatorColor = internalSeparatorColor else {
+                return buttonTitleColor
+            }
+            return internalSeparatorColor
         }
-        set {}
+        set (newColor) {
+            internalSeparatorColor = newColor
+        }
     }
+    
+    fileprivate var internalSeparatorColor: UIColor?
+    
 
     /**
      *  Boolean flag if to use vertical layout for 2 buttons (for 3+ always vertical being used). Default is nil for compatibility
@@ -368,17 +400,17 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      * Tint color of the blurred snapshot
      */
-    open var blurTintColor: UIColor? {
-        get {
-            let tintColor = blurTintColor ?? UIColor.white.withAlphaComponent(0.4)
-            var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha : CGFloat = 0
-            tintColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-            assert(alpha < 1.0, "URBNAlertStyle: blurTintColor alpha component must be less than 1.0f to see the blur effect. Please use colorWithAlphaComponent: when setting a custom blurTintColor, for example: [[UIColor whiteColor] colorWithAlphaComponent:0.4f]")
-            return tintColor
-        }
-        set {}
+    open var blurTintColor: UIColor? = UIColor.white.withAlphaComponent(0.4)
+//        get {
+//            let tintColor = blurTintColor ?? UIColor.white.withAlphaComponent(0.4)
+//            var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha : CGFloat = 0
+//            tintColor.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+//            assert(alpha < 1.0, "URBNAlertStyle: blurTintColor alpha component must be less than 1.0f to see the blur effect. Please use colorWithAlphaComponent: when setting a custom blurTintColor, for example: [[UIColor whiteColor] colorWithAlphaComponent:0.4f]")
+//            return tintColor
+//        }
+//        set {}
 
-    }
+//    }
 
     /**
      * Tint color of the view behind the Alert. Blur must be disabled
