@@ -24,18 +24,8 @@ open class URBNSwiftAlertView: UIView, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
 
-    open var buttonTouchedBlock: URBNSwiftAlertViewButtonTouched? {
-        get {
-            return buttonTouchedBlock ?? nil
-        }
-        set {}
-    }
-    open var alertViewTouchedClosure: URBNSwiftAlertViewTouched? {
-        get {
-            return alertViewTouchedClosure ?? nil
-        }
-        set {}
-    }
+    open var buttonTouchedBlock: URBNSwiftAlertViewButtonTouched?
+    open var alertViewTouchedClosure: URBNSwiftAlertViewTouched?
 
     open var alertConfig: URBNSwiftAlertConfig
     open var alertStyler: URBNSwiftAlertStyle

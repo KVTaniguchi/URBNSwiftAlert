@@ -18,32 +18,17 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      * Background color of the buttons for active alerts
      */
-    open var  buttonBackgroundColor: UIColor {
-        get {
-            return buttonBackgroundColor ?? .lightGray
-        }
-        set {}
-    }
+    open var buttonBackgroundColor = UIColor.white
 
     /**
      * Background color of the denial button for an active alert (at position 0)
      */
-    open var destructionButtonBackgroundColor: UIColor {
-        get {
-            return destructionButtonBackgroundColor ?? .red
-        }
-        set {}
-    }
+    open var destructionButtonBackgroundColor = UIColor.red
 
     /**
      * Text color of destructive button colors
      */
-    open var destructiveButtonTitleColor: UIColor {
-        get {
-            return destructiveButtonTitleColor ?? .white
-        }
-        set {}
-    }
+    open var destructiveButtonTitleColor = UIColor.white
 
     /**
      * Text color of destructive button title when highlighted
@@ -52,18 +37,13 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return destructiveButtonHighlightTitleColor ?? destructiveButtonTitleColor
         }
-        set {}
+        
     }
 
     /**
      * Background color of the cancel button for an active alert
      */
-    open var cancelButtonBackgroundColor: UIColor {
-        get {
-            return cancelButtonBackgroundColor ?? .lightGray
-        }
-        set {}
-    }
+    open var cancelButtonBackgroundColor = UIColor.lightGray
 
     /**
      * Text color of cancel button colors
@@ -72,7 +52,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return cancelButtonTitleColor ?? .white
         }
-        set {}
+        
     }
 
     /**
@@ -83,7 +63,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return cancelButtonHighlightTitleColor ?? cancelButtonTitleColor
         }
-        set {}
+        
     }
 
     /**
@@ -94,12 +74,7 @@ open class URBNSwiftAlertStyle: NSObject {
     /**
      * Background color of a selected button for an active alert
      */
-    open var buttonSelectedBackgroundColor: UIColor {
-        get {
-            return buttonSelectedBackgroundColor ?? buttonBackgroundColor
-        }
-        set {}
-    }
+    open var buttonSelectedBackgroundColor = UIColor.black
 
     /**
      * Button title color for a selected state
@@ -108,7 +83,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonSelectedTitleColor ?? buttonTitleColor
         }
-        set {}
+        
     }
 
     /**
@@ -119,7 +94,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonHighlightBackgroundColor ?? buttonBackgroundColor
         }
-        set {}
+        
     }
 
     /**
@@ -130,7 +105,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return cancelButtonHighlightBackgroundColor ?? buttonBackgroundColor
         }
-        set {}
+        
     }
 
     /**
@@ -141,7 +116,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return destructiveButtonHighlightBackgroundColor ?? buttonBackgroundColor
         }
-        set {}
+        
     }
 
     /**
@@ -151,7 +126,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonHighlightTitleColor ?? buttonTitleColor
         }
-        set {}
+        
     }
 
     /**
@@ -166,98 +141,54 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return disabledButtonAlpha ?? 0.5
         }
-        set {}
+        
     }
 
     /**
      * Text color of the button titles
      */
-    open var buttonTitleColor: UIColor {
-        get {
-            return buttonTitleColor ?? .white
-        }
-        set {}
-    }
+    open var buttonTitleColor =  UIColor.white
 
     /**
      * Background color of alert view
      */
-    open var backgroundColor: UIColor {
-        get {
-            return backgroundColor ?? .white
-        }
-        set {}
-    }
+    open var backgroundColor = UIColor.white
 
     /**
      * Text color of the alert's title
      */
-    open var titleColor: UIColor {
-        get {
-            return titleColor ?? .black
-        }
-        set {}
-    }
+    open var titleColor = UIColor.black
 
     /**
      * Text color of the alert's message
      */
-    open var messageColor: UIColor {
-        get {
-            return messageColor ?? .black
-        }
-        set {}
-    }
+    open var messageColor = UIColor.black
 
     /**
      * Font of the alert's title
      */
-    open var titleFont: UIFont {
-        get {
-            return titleFont ?? UIFont.boldSystemFont(ofSize: 14)
-        }
-        set {}
-    }
+    open var titleFont = UIFont.boldSystemFont(ofSize: 14)
 
     /**
      * Alignment of the titles's message
      */
-    open var titleAlignment: NSTextAlignment {
-        get {
-            return titleAlignment ?? .center
-        }
-        set {}
-    }
+    open var titleAlignment: NSTextAlignment = .center
 
     /**
      * Font of the alert's message
      */
-    open var messageFont: UIFont {
-        get {
-            return messageFont ?? UIFont.systemFont(ofSize: 14)
-        }
-        set {}
-    }
+    open var messageFont = UIFont.systemFont(ofSize: 14)
+
 
     /**
      * Alignment of the alert's message
      */
-    open var messageAlignment: NSTextAlignment {
-        get {
-            return messageAlignment ?? .left
-        }
-        set {}
-    }
+    open var messageAlignment: NSTextAlignment = .left
 
     /**
      * Font of the button's titles
      */
-    open var buttonFont: UIFont {
-        get {
-            return buttonFont ?? UIFont.boldSystemFont(ofSize: 14)
-        }
-        set {}
-    }
+    open var buttonFont = UIFont.boldSystemFont(ofSize: 14)
 
     /**
      * Corner radius of the alert's buttons
@@ -266,7 +197,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonCornerRadius ?? 8
         }
-        set {}
+        
     }
 
     /**
@@ -276,7 +207,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return alertCornerRadius ?? 8
         }
-        set {}
+        
     }
 
     /**
@@ -296,7 +227,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return textFieldMaxLength ?? 25
         }
-        set {}
+        
     }
 
     /**
@@ -306,7 +237,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return textFieldVerticalMargin ?? 8
         }
-        set {}
+        
     }
 
     /**
@@ -316,7 +247,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return textFieldEdgeInsets ?? UIEdgeInsets.zero
         }
-        set {}
+        
     }
 
     /**
@@ -327,7 +258,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonVerticalSeparatorWidth ?? 0
         }
-        set {}
+        
     }
 
     /**
@@ -338,7 +269,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonVerticalSeparatorColor ?? buttonBackgroundColor
         }
-        set {}
+        
     }
 
     /**
@@ -348,7 +279,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return separatorHeight ?? 0
         }
-        set {}
+        
     }
 
     /**
@@ -358,7 +289,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return separatorColor ?? buttonTitleColor
         }
-        set {}
+        
     }
 
     /**
@@ -368,7 +299,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return useVerticalLayoutForTwoButtons ?? 0
         }
-        set {}
+        
     }
 
     /**
@@ -378,7 +309,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonHeight ?? 44
         }
-        set {}
+        
     }
 
     /**
@@ -388,7 +319,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return sectionVerticalMargin ?? 24
         }
-        set {}
+        
     }
 
     /**
@@ -398,7 +329,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return labelHorizontalMargin ?? 16
         }
-        set {}
+        
     }
 
     /**
@@ -408,7 +339,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonMarginEdgeInsets ?? UIEdgeInsets.zero
         }
-        set {}
+        
     }
 
     /**
@@ -418,7 +349,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonContentInsets ?? UIEdgeInsets.zero
         }
-        set {}
+        
     }
 
     /**
@@ -428,7 +359,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonBorderWidth ?? 0
         }
-        set {}
+        
     }
 
     /**
@@ -439,7 +370,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonBorderColor ?? .clear
         }
-        set {}
+        
     }
 
     /**
@@ -449,7 +380,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonShadowOpacity ?? 0
         }
-        set {}
+        
     }
 
     /**
@@ -459,7 +390,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonShadowRadius ?? 0
         }
-        set {}
+        
     }
 
     /**
@@ -469,7 +400,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonShadowColor ?? .clear
         }
-        set {}
+        
     }
 
     /**
@@ -479,7 +410,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return buttonShadowOffset ?? CGSize.zero
         }
-        set {}
+        
     }
 
     /**
@@ -489,7 +420,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return customViewMargin ?? 8
         }
-        set {}
+        
     }
 
     /**
@@ -499,7 +430,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return customViewBorderColor ?? .clear
         }
-        set {}
+        
     }
 
     /**
@@ -509,7 +440,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return customViewBorderWidth ?? 0
         }
-        set {}
+        
     }
 
     /**
@@ -519,7 +450,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return animationDuration ?? 0.6
         }
-        set {}
+        
     }
 
     /**
@@ -529,7 +460,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return animationDamping ?? 0.6
         }
-        set {}
+        
     }
 
     /**
@@ -539,7 +470,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return animationInitialVelocity ?? -10
         }
-        set {}
+        
     }
 
     /**
@@ -549,7 +480,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return alertViewShadowOpacity ?? 0.3
         }
-        set {}
+        
     }
 
     /**
@@ -559,7 +490,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return alertViewShadowRadius ?? 2
         }
-        set {}
+        
     }
 
     /**
@@ -569,7 +500,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return alertViewShadowColor ?? .black
         }
-        set {}
+        
     }
 
     /**
@@ -579,7 +510,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return alertShadowOffset ?? CGSize(width: 1, height: 1)
         }
-        set {}
+        
     }
 
     /**
@@ -589,7 +520,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return blurEnabled ?? 1
         }
-        set {}
+        
     }
 
     /**
@@ -603,7 +534,7 @@ open class URBNSwiftAlertStyle: NSObject {
             assert(alpha < 1.0, "URBNAlertStyle: blurTintColor alpha component must be less than 1.0f to see the blur effect. Please use colorWithAlphaComponent: when setting a custom blurTintColor, for example: [[UIColor whiteColor] colorWithAlphaComponent:0.4f]")
             return tintColor
         }
-        set {}
+        
 
     }
 
@@ -619,7 +550,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return blurRadius ?? 5
         }
-        set {}
+        
     }
 
     /**
@@ -629,7 +560,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return blurSaturationDelta ?? 1
         }
-        set {}
+        
     }
 
     /**
@@ -639,7 +570,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return errorTextColor ?? .red
         }
-        set {}
+        
     }
 
     /**
@@ -649,7 +580,7 @@ open class URBNSwiftAlertStyle: NSObject {
         get {
             return errorTextFont ?? UIFont.boldSystemFont(ofSize: 14)
         }
-        set {}
+        
     }
 
     /**

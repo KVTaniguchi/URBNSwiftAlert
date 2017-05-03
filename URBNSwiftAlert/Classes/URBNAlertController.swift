@@ -20,7 +20,7 @@ open class URBNSwiftAlertController: NSObject {
      */
     open var alertStyler: URBNSwiftAlertStyle {
         get {
-            return alertStyler ?? URBNSwiftAlertStyle()
+            return alertStyler
         }
         set {}
     }
@@ -33,7 +33,7 @@ open class URBNSwiftAlertController: NSObject {
 
     open func dismissingAlert() {
         alertIsVisible = false
-        popQueue()
+        _ = popQueue()
         showNextAlert()
     }
 
